@@ -4,17 +4,20 @@ function Categories({items}) {
     const [activeItem, setActiveItem] = React.useState(null)
 
 
-     const onSelectItem = (index) => {
+    const onSelectItem = (index) => {
         setActiveItem(index)
     }
 
-    return(
+    return (
         <div className="categories">
             <ul>
-                <li  className={activeItem ===  null ? 'active' : ''} onClick={() => onSelectItem(null)}>Все</li>
-                { items && items.map((category, index) =>
+                <li
+                    className={activeItem === null ? 'active' : ''}
+                    onClick={() => onSelectItem(null)}>Все
+                </li>
+                {items && items.map((category, index) =>
                     <li
-                        className={activeItem ===  index ? 'active' : ''}
+                        className={activeItem === index ? 'active' : ''}
                         onClick={() => onSelectItem(index)}
                         key={`${category}_${index}`}> {category}</li>)
                 }
@@ -22,4 +25,5 @@ function Categories({items}) {
         </div>
     )
 }
+
 export default Categories
